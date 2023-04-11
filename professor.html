@@ -1,0 +1,129 @@
+<!--Page containing information for Professor 1--->
+
+<!Doctype html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="professor.css">
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!--JavaScript Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!--Container containing everything at the top-->
+    <div class = "container">
+
+        <!--div which will hold professors image, name, and other classes they lecture-->
+        <div class = "row">
+            <div class = "col-sm-3" id = "professorGenericInfo">
+                <div class = "align-items-end" style="background:white">
+                    <div class = "row" style = "background: white">
+                        <img id = "professorPicture" src="" class="img-thumbnail" width="200px" height="200px">
+                        <h3 id = "professorName" style = "background: white">John Doe</h3>
+        
+                        <div class="dropdown" id = "otherClassesDropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Other Courses Taught
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                              <li><button class="dropdown-item" type="button">Class 1</button></li>
+                              <li><button class="dropdown-item" type="button">Class 2</button></li>
+                              <li><button class="dropdown-item" type="button">Class 3</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class = "col-md" id = "courseInfo"> 
+    
+                <!--Assignments and Attendance-->
+                <div class = "row" id = "assignmentsAndAttendance">
+
+                    <div class = "col" id = "assignments" style = "background: grey; border-style: solid">
+                        <h5>Assignments: </h5>
+                        <p>There will be frequent assignments and quizzes during the semester covering the topics discussed in class, from
+                            the textbook. Some Important points to remember: 
+                        </p>
+                        <ul>
+                            <li>Assignment solutions must be legible: Difficult-to-read solutions may be marked off or may not graded entirely.</li>
+                            <li>Typed assignments are required. Use either MS word, Google Docs, or Libre Office suite to type your assignment.</li>
+                            <li>No late assignments accepted</li>
+                        </ul>
+                        
+                    </div>
+
+                    <div class = "col" id = "attendance" style = "background: grey; border-style: solid">
+                        <h5>Attendance: </h5>
+                        <p>Attending class is mandatory and attendance will be taken at the beginning of every morning. 
+                            Students arriving after class has begun will recieve half credit for attendance that day. This
+                            rule does not apply to absences due to religious observances, as described in the Undergraduate Bulletin.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!--Class gradings and other comments-->
+                <div class = "row" id = "gradingsAndOther">
+                    <div class = "col" id = "classGradings" style = "background:grey; border-style: solid">
+                        <h5>Class Gradings: </h5>
+                        <h6>Attendance and Class Participation: 10%</h6>
+                        <h6>Midterm: 20%</h6>
+                        <h6>Final Exam: 30%</h6>
+                        <h6>Assignments & Quiz: 40%</h6>
+                    </div>
+
+                    <div class = "col" id = "otherComments" style = "background:grey; border-style: solid">
+                        <p>Students should prepapre to spend at least 2-6 hours per assignment on this material.
+                            This does not include studying for exams. If you do not have enough time, do not
+                            take this course. Do not kid yourself! 
+                            <br>
+                            Each of the areas of study will be reviewed in assignments and asked in class quiz.
+                            The frequency of assignments is one in a month and quiz is one in two month. You will 
+                            recieve an email from me with information and possibly additional requirements for each assignment 
+                            . Please be sure to read the instructions carefully before you begin the assignment.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div class= "align-items-end" style="background:white" id = "professorGenericInfo">
+            <div class = "row" style = "background: white">
+                <img id = "professorPicture" src="pictures/blank_profile.webp" class="img-thumbnail" width="200px" height="200px">
+                <h3 id = "professorName" style = "background: blue">John Doe</h3>
+
+                <div class="dropdown" id = "otherClassesDropdown">
+                    <button class="btn btn-lg btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                      Other Courses Taught
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <li><button class="dropdown-item" type="button">Class 1</button></li>
+                      <li><button class="dropdown-item" type="button">Class 2</button></li>
+                      <li><button class="dropdown-item" type="button">Class 3</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+
+        
+
+    </div>
+
+    
+
+</body>
+
+
+
+
+
+</html>

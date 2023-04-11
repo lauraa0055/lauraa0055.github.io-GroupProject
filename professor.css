@@ -1,0 +1,32 @@
+#professorGenericInfo {
+    width: 200px;
+    height: 400px;
+}
+
+#professorPicture{
+    margin-top: 20px;
+}
+
+#professorName{
+    margin-top: 10px;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+}
+
+h3{
+    text-align: center;
+}
+
+#otherClassesDropdown{
+    margin-top: 50px;
+    padding: 0;
+}
+
+#courseInfo{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+

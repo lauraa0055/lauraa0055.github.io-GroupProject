@@ -2,16 +2,177 @@
 <html>
 <head>
   <title>Search Results</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+	html {
+		
+	}
+  
+	.flex-container {
+		display: flex;
+		border: 1px solid black;
+		height:100px;
+		text-align:center;
+		background-color:white;
+		margin-top:50px;
+	}
+	
+	.professor{
+		
+	}
+	
+	a {
+		color:black;
+		text-decoration:none;
+	}
+	
+	.name {
+		font-size:25px;
+		text-align:center
+	}
+	
+  </style>
 </head>
+<body onload="sortList()">
 
     <div class="searchPage">
-        <h2>Search Results</h2>
-        <p>Here are your search results:</p>
-        <ul id="search-results">
-        </ul>
-    </div>
+	
+		<div class="flex-container">
+			<div class="courseName" style="margin:auto; border-right:1px black solid">
+				CISC 1115 - Introduction to Programming Using Java
+			</div>
+		
+			<div class="courseInfo" style="margin:auto">
+				<p>
+				Algorithms, computers and programs. Writing, debugging, and testing programs. Loops and conditional control structures. Method definition and parameter passing. 
+				Arrays, ArrayLists, and Strings. Sorting, searching and other basic algorithms. Input and output. Programming applications selected from various disciplines. 
+				History and basic concepts of computer science.
+				</p>
+				
+				<footer style="font-size:10px">
+					<i>
+					Requirements: (Not open to students who have completed Computer and Information Science 1110 [1.5]. 
+					Completion of this course prohibits a student from receiving credit for CISC 1110.)
+					</i>
+				</footer>
+			</div>
+		</div>
+		
+		<!-- <div class="searchBar" style="border:1px black solid;margin-top:100px">
+			Search
+			<input type=text> </input>
+		</div> -->
+		
+		<div class="professorListContainer" style="background-color:white;margin-top:100px; margin-left:100px; margin-right:100px" >
+			<p style="text-align:left; font-size:30px">Professors</p>
+			
+			<div style="text-align:right">
+				<label> Sort By</label>
+				<select id = "sortBy" onchange="sortList(this)">
+					<option> FirstName </option>
+					<option> LastName </option>
+				</select>
+			</div>
+			
+			<div id= "professorList" data-numberOfProfessors = "3">
+			
+				<a  id="professorOne" href="professor.html" style="font-color:black">
+					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
+						
+						<p class="name"> Brian Crain </p>
+						<hr>
+					</div>
+				</a>
+			
+				<a id="professorTwo" href="professorTwo.html" style="font-color:black">
+					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
+						
+						<p class="name"> Sebastian Anderson </p>
+						<hr>
+						
+					</div>
+				</a>
+				
+				<a id="professorThree" href="" style="font-color:black">
+					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
+						<p class="name"> Cody Barnish </p>
+						
+						<hr>
+						
+					</div>
+				</a>
+				
+			</div>
+			
+		</div>
 
-  <script src="script.js"></script>
+    </div>
+	
+	
+	
+	
+	
+	
+	
+  <script>
+ 
+  function sortList(){
+	const profArray = getCurrentProfessors();
+	let professorList = document.getElementById("professorList");
+	let numberOfProfessors = professorList.getAttribute("data-numberOfProfessors");
+	let input = document.getElementById("sortBy");
+	
+	switch(input.value){
+	
+		case "FirstName":
+			for(let i = 0; i < numberOfProfessors; i++){
+				for(let j = 0; j < numberOfProfessors; j++){
+					if(profArray[i].children[0].children[0].innerText.split(" ")[0] < profArray[j].children[0].children[0].innerText.split(" ")[0]){
+						let temp = profArray[i]
+						profArray[i] = profArray[j];
+						profArray[j] = temp;
+					}
+				}
+			}
+			break;
+		case "LastName":
+			for(let i = 0; i < numberOfProfessors; i++){
+				for(let j = 0; j < numberOfProfessors; j++){
+					if(profArray[i].children[0].children[0].innerText.split(" ")[1] < profArray[j].children[0].children[0].innerText.split(" ")[1]){
+						let temp = profArray[i]
+						profArray[i] = profArray[j];
+						profArray[j] = temp;
+					}
+				}
+			}
+			break;
+	}
+	
+	professorList.innerHTML = "";
+	
+	for(let i = 0; i < numberOfProfessors; i++) {
+		professorList.append(profArray[i]);
+	}
+	
+  
+  }
+  
+  function getCurrentProfessors(){
+	const profArray = [];
+	let professorList = document.getElementById("professorList");
+	let numberOfProfessors = professorList.getAttribute("data-numberOfProfessors");
+	
+	for(let i = 0; i < numberOfProfessors; i++){
+		profArray.push(professorList.children[i]);
+	}
+	
+	return profArray;
+  }
+  
+
+  
+  
+  
+  </script>
+  
 </body>
 </html>

@@ -16,8 +16,10 @@
 		margin-top:50px;
 	}
 	
-	.professor{
-		
+	.tagArea {
+		display:flex;
+		height:25px;
+		justify-content: start;
 	}
 	
 	a {
@@ -27,13 +29,25 @@
 	
 	.name {
 		font-size:25px;
-		text-align:center
+		text-align:center;
+	}
+	
+	.tag {
+		border:1px solid black;
+		height:fit-content;
+		margin:auto;
+		width:fit-content;
+		font-size:12px;
+		white-space:nowrap;
+		border-radius: 30px;
+		padding-left:3px;
+		padding-right:3px;
 	}
 	
   </style>
 </head>
-<body onload="sortList()">
-
+<body onload="sortList(), renderTags()">
+	
     <div class="searchPage">
 	
 		<div class="flex-container">
@@ -62,7 +76,7 @@
 			<input type=text> </input>
 		</div> -->
 		
-		<div class="professorListContainer" style="background-color:white;margin-top:100px; margin-left:100px; margin-right:100px" >
+		<div class="professorListContainer" style="background-color:white;margin-top:100px; margin-left:100px; margin-right:100px">
 			<p style="text-align:left; font-size:30px">Professors</p>
 			
 			<div style="text-align:right">
@@ -75,28 +89,44 @@
 			
 			<div id= "professorList" data-numberOfProfessors = "3">
 			
-				<a  id="professorOne" href="professor.html" style="font-color:black">
+				<a  id="professorOne" href="professor.html" style="font-color:black" data-tagList = "Easy-Grader Strict-Attendance Test-Heavy">
 					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
 						
 						<p class="name"> Brian Crain </p>
 						<hr>
+						
+						<div class = "tagArea"> 
+						
+						
+						</div>
+						
 					</div>
 				</a>
 			
-				<a id="professorTwo" href="professorTwo.html" style="font-color:black">
+				<a id="professorTwo" href="professorTwo.html" style="font-color:black" data-tagList = "Hard-Grader Lenient-Attendance">
 					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
 						
 						<p class="name"> Sebastian Anderson </p>
 						<hr>
 						
+						<div class = "tagArea"> 
+						
+						
+						</div>
+						
 					</div>
 				</a>
 				
-				<a id="professorThree" href="" style="font-color:black">
+				<a id="professorThree" href="" style="font-color:black" data-tagList = "Moderate-Grader Project-Heavy">
 					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
 						<p class="name"> Cody Barnish </p>
 						
 						<hr>
+						
+						<div class = "tagArea"> 
+						
+						
+						</div>
 						
 					</div>
 				</a>
@@ -114,6 +144,34 @@
 	
 	
   <script>
+  
+  function renderTags(){
+	
+  
+	let professorList = document.getElementById("professorList");
+	let numberOfProfessors = professorList.getAttribute("data-numberOfProfessors");
+	
+	
+	
+	let tagArea = document.getElementsByClassName("tagArea");
+	
+	
+	
+	for(let i = 0; i < numberOfProfessors; i++){
+		
+	
+		let tagArray = professorList.children[i].getAttribute("data-tagList").split(" ");
+		
+		for(j = 0; j < tagArray.length; j++){
+			let tag = document.createElement("div");
+			tag.setAttribute("class","tag");
+			
+			tag.innerText = tagArray[j];
+			tagArea[i].append(tag);
+		}
+	}
+	
+  }
  
   function sortList(){
 	const profArray = getCurrentProfessors();

@@ -28,5 +28,18 @@ h3{
     margin-left: 20px;
 }
 
+.progress{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    min-height: 40px;
+}
+
+#ratings-descriptors{
+    margin-top: 141%;
+}
+
+h5{
+   text-align: center;
+}
 
 

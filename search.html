@@ -4,7 +4,7 @@
   <title>Search Results</title>
   <style>
 	html {
-		
+		overflow: scroll;
 	}
   
 	.flex-container {
@@ -42,6 +42,33 @@
 		border-radius: 30px;
 		padding-left:3px;
 		padding-right:3px;
+	}
+	
+	#filterListPanel{
+		
+		overflow:hidden;
+		max-height:0px;
+		transition-duration: 500ms;
+	}
+	
+	.filterListPanelTransform {
+		max-height:100px;
+	}
+	
+	#filterList {
+		display:flex;
+		height:100px;
+		background: #D3D3D3;
+		gap:auto;
+		justify-content:space-around;
+		
+		
+	}
+	
+	.filterListColumn {
+		display:flex;
+		flex-direction:column;
+		padding:10px;
 	}
 	
   </style>
@@ -86,6 +113,68 @@
 					<option> LastName </option>
 				</select>
 			</div>
+			
+			<div >
+				<button id="filterButton" style="text-align:right" onclick = "expand()"> 
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+  <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
+					</svg>
+				</button>
+				<div id = "filterListPanel">
+					<div id = "filterList">
+						<div class = "filterListColumn">
+							<div>
+								<label> Easy-Grader </label>
+								<input type="checkbox" class = "checkBox" name="Easy-Grader" onchange="filterUpdate()"> </input>
+							</div>
+							
+							<div>
+								<label> Hard-Grader </label>
+								<input type="checkbox" class = "checkBox" name="Hard-Grader" onchange="filterUpdate()"> </input>
+							</div>
+							
+							<div>
+								<label> Strict-Attendance </label>
+								<input type="checkbox" class = "checkBox" name = "Strict-Attendance" onchange="filterUpdate()"> </input>
+							</div>
+							
+							<div>
+								<label> Lenient-Attendance </label>
+								<input type="checkbox" class = "checkBox" name = "Lenient-Attendance" onchange="filterUpdate()"> </input>
+							</div>
+							
+						</div>
+						<div class= "filterListColumn">
+							<div>
+								<label> Test-Heavy </label>
+								<input type="checkbox" class = "checkBox" name="Test-Heavy" onchange="filterUpdate()"> </input>
+							</div>
+							
+							<div>
+								<label> Test-Light </label>
+								<input type="checkbox" class = "checkBox" name="Test-Light" onchange="filterUpdate()"> </input>
+							</div>
+						
+							<div>
+								<label> Project-Heavy </label>
+								<input type="checkbox" class = "checkBox" name="Project-Heavy" onchange="filterUpdate()"> </input>
+								
+							</div>
+							
+							<div>
+								<label> No-Project </label>
+								<input type="checkbox" class = "checkBox" name="No-Project" onchange="filterUpdate()"> </input>
+							</div>
+							
+						</div>
+					</div>
+				
+					
+				</div>
+				
+			</div>
+			
+			
 			
 			<div id= "professorList" data-numberOfProfessors = "3">
 			
@@ -144,6 +233,49 @@
 	
 	
   <script>
+  
+  function filterUpdate(){
+	
+	//Get array of active filters
+	let filterListPanelTemp = document.getElementById("filterListPanel");
+	let checkBoxes = document.getElementsByClassName("checkBox");
+	let filterArray = [];
+	for(let i = 0; i < checkBoxes.length; i++){
+		if(checkBoxes[i].checked == true) filterArray.push(checkBoxes[i].name);
+	}
+	
+	//Hide/Show Qualifying Professors
+	let qualifiedProfessors = [];
+	const profArray = getCurrentProfessors();
+	
+	for(let i = 0; i < profArray.length; i++){
+		let profTagList = profArray[i].getAttribute("data-tagList");
+		let qualified = true;
+		
+		for(let j = 0; j < filterArray.length; j++){
+			if(!(profTagList.includes(filterArray[j]))) qualified = false;
+		}
+		
+		if(qualified) profArray[i].style.display = "block";
+		else profArray[i].style.display = "none";
+	
+	}
+	
+  
+  }
+  
+  function expand(){
+	let filterList = document.getElementById("filterListPanel");
+
+	if(filterList.style.maxHeight=="100px"){
+	
+		filterList.style.maxHeight = "0px";
+		
+	} else {
+		filterList.style.maxHeight = "100px";
+	}
+  }
+  
   
   function renderTags(){
 	

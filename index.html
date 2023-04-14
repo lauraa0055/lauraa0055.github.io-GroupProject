@@ -1,31 +1,33 @@
+<!-- Home Page/Search -->
 <!DOCTYPE html>
 <html>
 <head>
   <title>My Website</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body>
 
   <div class = "homePage">
-    <button href="index.html">Home</button>
+    <!-- <button href="index.html">Home</button> -->
     <div class = "titleText">
-        <h2>App Name</h2>
-        <p>Welcome to XYZ</p>
+        <h2>Rate My CISC Course</h2>
+        <p>Enter a CISC course name or number to start</p>
     </div>
     <div class = "searchSection">
-        <form class="searchBar">
+      <form class="searchBar" id="search-form">
             <input type="text" placeholder="Search..." id="search-input">
             <!-- <button type="button" onclick="searchPages()">Search</button> -->
             <button>Search</button>
         </form>
-        <ul>
+        <h4>Course List</h4>
+        <ul id = "course-list">
             <li><a href="search.html">1115 - Intro to Java</a></li>
-            <li><a href="search.html">1234 - Advanced Programming</a></li>
-            <li><a href="search.html">2222 - Discrete Math</a></li>
+            <li>1234 - Advanced Programming</li>
+            <li>2222 - Discrete Math</li>
         </ul>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

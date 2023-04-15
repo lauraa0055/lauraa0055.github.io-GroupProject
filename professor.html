@@ -26,37 +26,18 @@
                 <div class = "align-items-end" style="background:white">
                     <div class = "row" style = "background: white">
                         <img id = "professorPicture" src="" class="img-thumbnail" width="200px" height="200px">
-                        <h3 id = "professorName" style = "background: white">John Doe</h3>
+                        <h3 id = "professorName" style = "background: white">Brian Crain</h3>
         
                         <div class="dropdown" id = "otherClassesDropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                               Other Courses Taught
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                              <li><button class="dropdown-item" type="button">Class 1</button></li>
-                              <li><button class="dropdown-item" type="button">Class 2</button></li>
+                              <li><button class="dropdown-item" type="button">CISC 3130</button></li>
+                              <li><button class="dropdown-item" type="button">CISC 3310</button></li>
                             </ul>
                         </div>
                     </div>
-                </div>
-
-                <div class = "align-items-end" id = "ratings-descriptors">
-                    <div class = "row" style = "border-style: solid;">
-                       <h5>Some Descriptor</h5>
-                    </div>
-
-                    <div class = "row" style = "border-style: solid;margin-top: 41px;">
-                        <h5>Some Descriptor</h5>
-                     </div>
-
-                     <div class = "row" style = "border-style: solid; margin-top: 42px;">
-                        <h5>Some Descriptor</h5>
-                     </div>
-
-                     <div class = "row" style = "border-style: solid; margin-top: 43px;">
-                        <h5>Some Descriptor</h5>
-                     </div>
-
                 </div>
             </div>
 
@@ -110,7 +91,34 @@
                         </p>
                     </div>
                 </div>
-                <!--Progress Bars for class overall ratings-->
+            </div>
+        </div>
+
+        <!--Ratings-->
+        <div class  = "row">
+            <div class = "col-sm-3">
+                <div class = "align-items-end" id = "ratings-descriptors">
+                    <div class = "row" style = "border-style: solid;">
+                       <h5>Course Rating</h5>
+                    </div>
+
+                    <div class = "row" style = "border-style: solid;margin-top: 41px;">
+                        <h5>Difficulty</h5>
+                     </div>
+
+                     <div class = "row" style = "border-style: solid; margin-top: 42px;">
+                        <h5>Course/Work Load</h5>
+                     </div>
+
+                     <div class = "row" style = "border-style: solid; margin-top: 43px;">
+                        <h5>Professor Rating</h5>
+                     </div>
+
+                </div>
+            </div>
+
+            <!--Actual Progress Bars-->
+            <div class = "col">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 30%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                         30% 
@@ -134,20 +142,168 @@
                         80%
                     </div>
                 </div>
-
             </div>
         </div>
 
+        <!--Forums-->
+        <div class = "row" id = "forums">
+            <h4 style = "border-bottom: 3px solid black;">Rate The Course</h4>
+
+            <!--Rate the Course-->
+            <div style  = "border: 1px solid black">
+                <h6>Rate The Course</h6>
+
+                <!--Actual Radios-->
+                <div class = "btn-group-wrap">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="rateCourse" id="btnradio1.2" autocomplete="off" checked>
+                        <label class="btn btn-outline-secondary" for="btnradio1.2">1</label>
+                      
+                        <input type="radio" class="btn-check" name="rateCourse" id="btnradio2.2" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio2.2">2</label>
+                      
+                        <input type="radio" class="btn-check" name="rateCourse" id="btnradio3.2" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio3.2">3</label>
     
-        
+                        <input type="radio" class="btn-check" name="rateCourse" id="btnradio4.2" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio4.2">4</label>
+    
+                        <input type="radio" class="btn-check" name="rateCourse" id="btnradio5.2" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio5.2">5</label>
+                    </div>
+                </div>
+
+                <div id = "label-wrapping">
+                    <span style = "float: left">1-Awful</span>
+                    <span style = "float: right">5-Awesome</span>
+                </div>
+            </div>
+
+            <!--Rate the difficulty-->
+            <div style  = "border: 1px solid black">
+                <h6>Rate The Class Difficulty</h6>
+
+                <!--Actual Radios-->
+                <div class = "btn-group-wrap">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="rateDifficulty" id="btnradio1.4" autocomplete="off" chec>
+                        <label class="btn btn-outline-secondary" for="btnradio1.4">1</label>
+                      
+                        <input type="radio" class="btn-check" name="rateDifficulty" id="btnradio2.4" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio2.4">2</label>
+                      
+                        <input type="radio" class="btn-check" name="rateDifficulty" id="btnradio3.4" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio3.4">3</label>
+    
+                        <input type="radio" class="btn-check" name="rateDifficulty" id="btnradio4.4" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio4.4">4</label>
+    
+                        <input type="radio" class="btn-check" name="rateDifficulty" id="btnradio5.4" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio5.4">5</label>
+                    </div>
+                </div>
+
+                <div id = "label-wrapping">
+                    <span style = "float: left">1-Not that Difficult</span>
+                    <span style = "float: right">5-Very Difficult</span>
+                </div>
+            </div>
+ 
+            <!--Rate the courseload-->
+            <div style  = "border: 1px solid black">
+                <h6>Rate The Course Load</h6>
+
+                <!--Actual Radios-->
+                <div class = "btn-group-wrap">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="rateCourseLoad" id="btnradio1.3" autocomplete="off" checked>
+                        <label class="btn btn-outline-secondary" for="btnradio1.3">1</label>
+                      
+                        <input type="radio" class="btn-check" name="rateCourseLoad" id="btnradio2.3" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio2.3">2</label>
+                      
+                        <input type="radio" class="btn-check" name="rateCourseLoad" id="btnradio3.3" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio3.3">3</label>
+    
+                        <input type="radio" class="btn-check" name="rateCourseLoad" id="btnradio4.3" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio4.3">4</label>
+    
+                        <input type="radio" class="btn-check" name="rateCourseLoad" id="btnradio5.3" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio5.3">5</label>
+                    </div>
+                </div>
+
+                <div id = "label-wrapping">
+                    <span style = "float: left">1-Not much load</span>
+                    <span style = "float: right">5-A lot of load</span>
+                </div>
+            </div>
+
+            <!--Rate the Professor-->
+            <div style  = "border: 1px solid black">
+                <h6>Rate The Professor</h6>
+
+                <!--Actual Radios-->
+                <div class = "btn-group-wrap">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="rateProfessor" id="btnradio1.1" autocomplete="off" checked>
+                        <label class="btn btn-outline-secondary" for="btnradio1.1">1</label>
+                      
+                        <input type="radio" class="btn-check" name="rateProfessor" id="btnradio2.1" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio2.1">2</label>
+                      
+                        <input type="radio" class="btn-check" name="rateProfessor" id="btnradio3.1" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio3.1">3</label>
+    
+                        <input type="radio" class="btn-check" name="rateProfessor" id="btnradio4.1" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio4.1">4</label>
+    
+                        <input type="radio" class="btn-check" name="rateProfessor" id="btnradio5.1" autocomplete="off">
+                        <label class="btn btn-outline-secondary" for="btnradio5.1">5</label>
+                    </div>
+                </div>
+
+                <div id = "label-wrapping">
+                    <span style = "float: left">1-Awful</span>
+                    <span style = "float: right">5-Awesome</span>
+                </div>
+            </div>
+
+            <!--Other Comments-->
+            <div style  = "border: 1px solid black;">
+                <h6>Any Other Comments!</h6>
+                <textarea class="form-control" aria-label="With textarea" style="margin-bottom: 10px"></textarea>
+            </div>
+
+            <!--Submit button-->
+            <div style  = "text-align: center; margin-top: 10px;">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitSuccessful">Submit Feedback</button>
+            </div>
+
+            <!-- Modal telling user that their information has been submitted -->
+            <div class="modal fade" id="submitSuccessful" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <p>Your Information has been successfully submitted!</p>
+                        </div>
+                        
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
-    
-
 </body>
-
-
-
-
 
 </html>

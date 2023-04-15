@@ -5,6 +5,7 @@
   <style>
 	html {
 		overflow: scroll;
+		background-color:#7B2240;
 	}
   
 	.flex-container {
@@ -12,7 +13,6 @@
 		border: 1px solid black;
 		height:100px;
 		text-align:center;
-		background-color:white;
 		margin-top:50px;
 	}
 	
@@ -71,39 +71,60 @@
 		padding:10px;
 	}
 	
+	.topPage {
+		
+	}
+	
+	.searchPage {
+		background-color:white;
+		margin-left:100px;
+		margin-right:100px;
+		height: auto;
+		padding-right:100px;
+		padding-left:100px;
+		padding-top:50px;
+		padding-bottom:100px;
+	}
+	
+	.homeButton{
+		position:a;
+		bottom:0px;
+		top:100px;
+	}
+	
+	.homeButtonComponents {
+		display:flex;
+		margin:auto;
+	}
   </style>
 </head>
 <body onload="sortList(), renderTags()">
 	
     <div class="searchPage">
-	
-		<div class="flex-container">
-			<div class="courseName" style="margin:auto; border-right:1px black solid">
-				CISC 1115 - Introduction to Programming Using Java
-			</div>
-		
-			<div class="courseInfo" style="margin:auto">
-				<p>
-				Algorithms, computers and programs. Writing, debugging, and testing programs. Loops and conditional control structures. Method definition and parameter passing. 
-				Arrays, ArrayLists, and Strings. Sorting, searching and other basic algorithms. Input and output. Programming applications selected from various disciplines. 
-				History and basic concepts of computer science.
-				</p>
-				
-				<footer style="font-size:10px">
-					<i>
-					Requirements: (Not open to students who have completed Computer and Information Science 1110 [1.5]. 
-					Completion of this course prohibits a student from receiving credit for CISC 1110.)
-					</i>
-				</footer>
+		<div class = "topPage">
+			<div class="flex-container">
+				<div class="courseName" style="margin:auto; border-right:1px black solid">
+					CISC 1115 - Introduction to Programming Using Java
+				</div>
+			
+				<div class="courseInfo" style="margin:auto;overflow:hidden">
+					<p style="">
+					Algorithms, computers and programs. Writing, debugging, and testing programs. Loops and conditional control structures. Method definition and parameter passing. 
+					Arrays, ArrayLists, and Strings. Sorting, searching and other basic algorithms. Input and output. Programming applications selected from various disciplines. 
+					History and basic concepts of computer science.
+					</p>
+					
+					<footer style="font-size:10px">
+						<i>
+						Requirements: (Not open to students who have completed Computer and Information Science 1110 [1.5]. 
+						Completion of this course prohibits a student from receiving credit for CISC 1110.)
+						</i>
+					</footer>
+				</div>
 			</div>
 		</div>
 		
-		<!-- <div class="searchBar" style="border:1px black solid;margin-top:100px">
-			Search
-			<input type=text> </input>
-		</div> -->
-		
-		<div class="professorListContainer" style="background-color:white;margin-top:100px; margin-left:100px; margin-right:100px">
+		<div class="professorListContainer" style="margin-top:100px; margin-left:100px; margin-right:100px">
 			<p style="text-align:left; font-size:30px">Professors</p>
 			
 			<div style="text-align:right">
@@ -168,10 +189,7 @@
 							
 						</div>
 					</div>
-				
-					
 				</div>
-				
 			</div>
 			
 			
@@ -185,7 +203,6 @@
 						<hr>
 						
 						<div class = "tagArea"> 
-						
 						
 						</div>
 						
@@ -219,17 +236,20 @@
 						
 					</div>
 				</a>
-				
 			</div>
-			
 		</div>
-
+		
+		<div id = "homeButton" style="margin-top:50px">
+			<button style="background:transparent; border:none; float:right; cursor:pointer">
+				<a href = "index.html"> 
+					<div class="homeButtonComponents">
+						<img src="bullDog.png" style="height:50px">
+					</div>
+				</a>
+			</button>
+		</div>
+		
     </div>
-	
-	
-	
-	
-	
 	
 	
   <script>
@@ -260,8 +280,6 @@
 		else profArray[i].style.display = "none";
 	
 	}
-	
-  
   }
   
   function expand(){
@@ -278,16 +296,10 @@
   
   
   function renderTags(){
-	
-  
+
 	let professorList = document.getElementById("professorList");
 	let numberOfProfessors = professorList.getAttribute("data-numberOfProfessors");
-	
-	
-	
 	let tagArea = document.getElementsByClassName("tagArea");
-	
-	
 	
 	for(let i = 0; i < numberOfProfessors; i++){
 		
@@ -300,9 +312,9 @@
 			
 			tag.innerText = tagArray[j];
 			tagArea[i].append(tag);
+			
 		}
 	}
-	
   }
  
   function sortList(){
@@ -335,6 +347,7 @@
 				}
 			}
 			break;
+			
 	}
 	
 	professorList.innerHTML = "";
@@ -342,8 +355,6 @@
 	for(let i = 0; i < numberOfProfessors; i++) {
 		professorList.append(profArray[i]);
 	}
-	
-  
   }
   
   function getCurrentProfessors(){
@@ -354,12 +365,8 @@
 	for(let i = 0; i < numberOfProfessors; i++){
 		profArray.push(professorList.children[i]);
 	}
-	
 	return profArray;
   }
-  
-
-  
   
   
   </script>

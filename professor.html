@@ -156,36 +156,31 @@
             </div>
         </div>
 
-
-        <!--Where comments will go-->
-        <div class = "row" id = "studentComments" style = "margin-bottom: 30px">
-            <h4 style = "border-bottom: 3px solid black">Student Comments</h4>
-
-            <div class = col-sm-3 id = "studentNames">
-                <div class = "row" id = "studentsLabel" style = "border: 3px solid black;">
-                    <h5>NAMES</h5>
-                </div>
-                <div class = "row" id = "student1" style = "border: 3px solid black; text-align: center;">
-                    <p>Student 1</p>
-                </div>
-                <div class = "row" id = "student2" style = "border: 3px solid black; text-align: center;">
-                    <p>Student 2</p>
-                </div>
-            </div>
-
-            <div class = "col-sm" id = "studentActualComments">
-                <div class = "row" id = "commentsLabel" style = "border: 3px solid black">
-                    <h5>FEEDBACK</h5>
-                </div>
-                <div class = "row" id = "commentFromStudent1" style = "border: 3px solid black;">
-                    <p>Comment 1</p>
-                </div>
-                <div class = "row" id = "commentFromStudent2" style = "border: 3px solid black;">
-                    <p>Comment 2</p>
-                </div>
-            </div>
-        </div>
-
+        <!--Student Comments-->
+        <h4 style  = "border-bottom: 3px solid black; margin-top: 20px;">Student Comments</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">NAMES</th>
+                    <th scope = "col">COMMENTS</th>
+                </tr>
+            </thead>
+            <tbody id = "studentTable">
+              <tr>
+                    <th scope="row" id = "student1">John Doe</th>
+                    <td id = "commentFromStudent1">I took this professor before and they were ok. The workload isn't that bad
+                        but you do need to pay attention in class. Sometimes they like to give
+                        pop quizzes. 
+                    </td>
+              </tr>
+              <tr>
+                    <th scope="row" id = "student2">Samantha Smith</th>
+                    <td id = "commentFromStudent2">Textbooks are technically not required as the professor attempts to explain everything
+                        in class. I mean everything, so be prepared to take a lot of notes. 
+                    </td>
+              </tr>
+            </tbody>
+          </table>
 
 
         <!--Forums-->
@@ -315,7 +310,11 @@
             <!--Other Comments-->
             <div style  = "border: 1px solid black;">
                 <h6>Any Other Comments!</h6>
-                <textarea class="form-control" aria-label="With textarea" style="margin-bottom: 10px"></textarea>
+                <div class = "input-group" style = "margin-bottom: 20px; margin-top: 10px;">
+                    <span class="input-group-text">Your Name</span>
+                    <input type="text" aria-label="StudentName" class="form-control" id = "nameOfStudentInput">
+                </div>
+                <textarea class="form-control" aria-label="With textarea" style="margin-bottom: 10px" id = "commentOfStudentInput"></textarea>
             </div>
 
             <!--Submit button-->
@@ -379,10 +378,8 @@
         var currentProfessorRatingsAverage = parseInt(courseProfessorRatingsProgressBar.style.width)/denominatorProfessor;
         var valuePicked;
 
-        var columnWithStudentNames = document.getElementById('studentNames');
-        var columnWithStudentComments = document.getElementById('studentActualComments');
-
-
+        var studentTable = document.getElementById('studentTable');
+        
         //setting up radios
         var courseRatingRadios = document.getElementsByName('rateCourse');
         var difficultyRatingRadios = document.getElementsByName('rateDifficulty');
@@ -392,7 +389,7 @@
 
         //calls all of the functions
         function updateAll(){
-            console.log("# of column with student names children including labels" + columnWithStudentNames.children.length);
+            console.log("# of column with student names children including labels" + studentTable.children.length);
             updateCourseRatings();
             updateCourseDifficulty();
             updateCourseLoad();
@@ -508,53 +505,50 @@
         }
 
 
+        //getting the content of the name, and text area
+        var inputName = document.getElementById('nameOfStudentInput').value;
+        var inputComment = document.getElementById('commentOfStudentInput').value;
+
         function updateComments(){
             //everything the row needs
 
-            //student name
-            //class = "row"
+            //for table
+            //th
+            //scope = "row"
             //id = "student" + num
-            //style = "border: 3px solid black; text-align: center;"
+            //td
 
-            //student comments
-            //class = "row"
-            //id = "commentFromStudent" + num
-            //style = "border: 3px solid black;"
+            console.log(inputName);
+            console.log(inputComment);
 
             //number the student is
-            var numStudent = columnWithStudentNames.children.length;
+            var numStudent = studentTable.children.length;
             var studentId = "student" + numStudent; 
             var commentId = "commentFromStudent" + numStudent;
-
-            //creating the paragraphs first
-            var studentName = document.createElement('p');
-            var studentComment = document.createElement('p');
             
-            //appending name content
-            studentName.innerHTML = "Student " + numStudent;
+            //table row
+            var studentRow = document.createElement('tr');
 
-            //appending comment content
-            studentComment.innerHTML = "Comment " + numStudent;
+            //table head
+            var studentHead = document.createElement('th');
+            studentHead.setAttribute("scope", "row");
+            studentHead.setAttribute("id", studentId);
 
-            //creating student row
-            var studentRow = document.createElement('div');
-            studentRow.setAttribute("class", "row");
-            studentRow.setAttribute("id", studentId);
-            studentRow.setAttribute("style", "border: 3px solid black; text-align: center;");
+            var studentComment = document.createElement('td');
+            studentComment.setAttribute("id", commentId);
 
-            //creating comment row
-            var commentRow = document.createElement("div");
-            commentRow.setAttribute("class", "row");
-            commentRow.setAttribute("id", commentId);
-            commentRow.setAttribute("style", "border: 3px solid black;");
+            //putting input name
+            studentHead.innerHTML = inputName;
 
-            //appending paragraphs to the divs
-            studentRow.appendChild(studentName);
-            commentRow.appendChild(studentComment);
+            //putting input comment
+            studentComment.innerHTML = inputComment;
+
+            //appending head and content to row
+            studentRow.appendChild(studentHead);
+            studentRow.appendChild(studentComment);
 
             //appending rows to parent column
-            columnWithStudentNames.appendChild(studentRow);
-            columnWithStudentComments.appendChild(commentRow);
+            studentTable.appendChild(studentRow);
 
         }
 

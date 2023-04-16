@@ -171,9 +171,6 @@
                 <div class = "row" id = "student2" style = "border: 3px solid black; text-align: center;">
                     <p>Student 2</p>
                 </div>
-                <div class = "row" id = "student3" style = "border: 3px solid black; text-align: center;">
-                    <p>Student 3</p>
-                </div>
             </div>
 
             <div class = "col-sm" id = "studentActualComments">
@@ -185,9 +182,6 @@
                 </div>
                 <div class = "row" id = "commentFromStudent2" style = "border: 3px solid black;">
                     <p>Comment 2</p>
-                </div>
-                <div class = "row" id = "commentFromStudent3" style = "border: 3px solid black;">
-                    <p>Comment 3</p>
                 </div>
             </div>
         </div>
@@ -385,6 +379,10 @@
         var currentProfessorRatingsAverage = parseInt(courseProfessorRatingsProgressBar.style.width)/denominatorProfessor;
         var valuePicked;
 
+        var columnWithStudentNames = document.getElementById('studentNames');
+        var columnWithStudentComments = document.getElementById('studentActualComments');
+
+
         //setting up radios
         var courseRatingRadios = document.getElementsByName('rateCourse');
         var difficultyRatingRadios = document.getElementsByName('rateDifficulty');
@@ -394,10 +392,12 @@
 
         //calls all of the functions
         function updateAll(){
+            console.log("# of column with student names children including labels" + columnWithStudentNames.children.length);
             updateCourseRatings();
             updateCourseDifficulty();
             updateCourseLoad();
             updateProfessor();
+            updateComments();
         }
 
         //calculates course ratings
@@ -506,6 +506,58 @@
            progressBarName.innerHTML = updateTo + "%";
 
         }
+
+
+        function updateComments(){
+            //everything the row needs
+
+            //student name
+            //class = "row"
+            //id = "student" + num
+            //style = "border: 3px solid black; text-align: center;"
+
+            //student comments
+            //class = "row"
+            //id = "commentFromStudent" + num
+            //style = "border: 3px solid black;"
+
+            //number the student is
+            var numStudent = columnWithStudentNames.children.length;
+            var studentId = "student" + numStudent; 
+            var commentId = "commentFromStudent" + numStudent;
+
+            //creating the paragraphs first
+            var studentName = document.createElement('p');
+            var studentComment = document.createElement('p');
+            
+            //appending name content
+            studentName.innerHTML = "Student " + numStudent;
+
+            //appending comment content
+            studentComment.innerHTML = "Comment " + numStudent;
+
+            //creating student row
+            var studentRow = document.createElement('div');
+            studentRow.setAttribute("class", "row");
+            studentRow.setAttribute("id", studentId);
+            studentRow.setAttribute("style", "border: 3px solid black; text-align: center;");
+
+            //creating comment row
+            var commentRow = document.createElement("div");
+            commentRow.setAttribute("class", "row");
+            commentRow.setAttribute("id", commentId);
+            commentRow.setAttribute("style", "border: 3px solid black;");
+
+            //appending paragraphs to the divs
+            studentRow.appendChild(studentName);
+            commentRow.appendChild(studentComment);
+
+            //appending rows to parent column
+            columnWithStudentNames.appendChild(studentRow);
+            columnWithStudentComments.appendChild(commentRow);
+
+        }
+
     </script>
 
 </body>

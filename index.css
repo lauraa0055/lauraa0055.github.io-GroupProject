@@ -12,6 +12,13 @@ p {
     height: 100vh;
     font-family: Helvetica;
   }
+  
+ #preferences {
+	position:absolute;
+	top:2vh;
+	right:2vh;
+	font-size:2vh;
+ }
 
 #logo {
   width: 150px;

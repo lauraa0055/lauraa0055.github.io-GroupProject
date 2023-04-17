@@ -255,13 +255,11 @@
   <script>
   
   function loadPreferences (){
-  
-	if(sessionStorage.getItem('hasPreferences')=='true'){
+ 
 		if(sessionStorage.getItem('isDisabled')=='Yes') document.getElementById("Accessible").checked = true;
 		if(sessionStorage.getItem('prefersTesting')=='Yes') document.getElementById("Test-Based").checked = true;
-			else document.getElementById("Project-Based").checked = true;
+			else if (sessionStorage.getItem('prefersTesting')=='No')document.getElementById("Project-Based").checked = true;
 		if(sessionStorage.getItem('prefersFlexibleAttendance')=='Yes') document.getElementById("Lenient-Attendance").checked = true;
-	}
   
 	filterUpdate();
   }

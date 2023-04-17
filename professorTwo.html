@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body onload="loadName()">
 
     <!--Container containing everything at the top-->
     <div class = "container">
@@ -554,6 +554,10 @@
             studentTable.appendChild(studentRow);
 
         }
+		
+		function loadName(){
+			if(sessionStorage.getItem('name')!=null) nameOfStudentInput.value = sessionStorage.getItem('name');
+		}
 
     </script>
 

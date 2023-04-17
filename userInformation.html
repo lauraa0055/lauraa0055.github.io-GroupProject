@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		html {
+			background-color:black;
+			color:grey;
+			font-size: 1vw;
+			scroll:hidden;
+		}
+		
+		* {
+			font-family: Helvetica;
+		}
+		
+		body {
+			display:flex;
+			height:98vh;
+			width:99vw;
+			overflow:hidden;
+		}
+		
+		#screen {
+			border: 1px #1F1F1F solid;
+			height:85%;
+			width:75%;
+			margin:auto;
+			background-color:#1F1F1F;
+			text-align:center;
+		}
+		
+		</style>
+	</head>
+	<body>
+		<div id="screen" style="position:relative" data-currentQuestion="0">
+			<div style="font-size:10vh;">
+				Supplementary Information
+				
+				
+				
+			</div>
+			<footer style="font-size:1vh">
+				Note: these answers will help better generate accomodating courses on the next page, which you can peruse.
+			</footer>
+			
+			<hr>
+			
+			
+			<div id="formBody">
+				<div id = "nameInput" style = "margin:5vh;">
+					<label style="font-size:3vh"> Name </label>
+					<input type="text" style= "line-height:25px" onchange="recordName(this)"> </input>
+				</div>
+				
+				<hr>
+				
+				<div id="testingInput" style="margin:2vh">
+					Do you prefer testing over projects?
+					<select onchange="recordTesting(this)"> 
+						<option> Yes </option>
+						<option> No </option>
+					</select>
+				</div>
+				
+				<hr>
+				
+				<div id="attendance" style="margin:2vh">
+					Do you have other obligations that may result in missing classes often?
+					<select onchange="recordAttendance(this)"> 
+						<option> Yes </option>
+						<option> No </option>
+					</select>
+				</div>
+				
+				<hr>
+				
+				<div id = "disabilityInput" style = "margin:2vh">
+				
+					Do you have a disability?
+					
+					<select onchange="recordDisability(this)"> 
+						<option> Yes </option>
+						<option> No </option>
+					</select>
+				
+				</div>
+				<hr>
+			
+				<button type="submit" style="background-color:white; font-size:5vh; margin-top:5vh; border:1px white solid; cursor:pointer" onclick="searchWithPreferences()">
+					Submit
+				</button>
+			
+			</div>
+			
+			<a onclick= "searchWithoutPreferences()"; style="cursor:pointer;">
+				<div style="position:absolute; right:0px;bottom:0px; font-size:3vh; color:purple">
+					Skip ⇒
+				</div>
+			</a>
+				
+		</div>
+	
+	<script>
+	
+		function searchWithoutPreferences(){
+			sessionStorage.setItem('hasPreferences','false');
+			sessionStorage.clear();
+			window.location.href = "search.html";
+			
+		}
+	
+		function searchWithPreferences(){
+			sessionStorage.setItem('hasPreferences','true');
+			window.location.href = "search.html";
+		}
+	
+		function recordName(item){
+			console.log(item.value);
+			sessionStorage.setItem('name',item.value);
+		}
+		
+		function recordDisability(item){
+			sessionStorage.setItem('isDisabled',item.value);
+		}
+		
+		function recordTesting(item){
+			sessionStorage.setItem('prefersTesting',item.value);
+		}
+		
+		function recordAttendance(item){
+			sessionStorage.setItem('prefersFlexibleAttendance',item.value);
+		}
+
+	</script>
+	
+	
+	</body>
+</html>

@@ -8,6 +8,10 @@
 		background-color:#7B2240;
 	}
   
+	* {
+		font-family: Helvetica;
+	}
+	
 	.flex-container {
 		display: flex;
 		border: 1px solid black;
@@ -71,10 +75,6 @@
 		padding:10px;
 	}
 	
-	.topPage {
-		
-	}
-	
 	.searchPage {
 		background-color:white;
 		margin-left:100px;
@@ -98,7 +98,7 @@
 	}
   </style>
 </head>
-<body onload="sortList(), renderTags()">
+<body onload="sortList(), renderTags(), loadPreferences()">
 	
     <div class="searchPage">
 		<div class = "topPage">
@@ -146,45 +146,45 @@
 						<div class = "filterListColumn">
 							<div>
 								<label> Easy-Grader </label>
-								<input type="checkbox" class = "checkBox" name="Easy-Grader" onchange="filterUpdate()"> </input>
+								<input type="checkbox" class = "checkBox" id= "Easy-Grader" name="Easy-Grader" onchange="filterUpdate()"> </input>
 							</div>
 							
 							<div>
 								<label> Hard-Grader </label>
-								<input type="checkbox" class = "checkBox" name="Hard-Grader" onchange="filterUpdate()"> </input>
+								<input type="checkbox" class = "checkBox" id= "Hard-Grader" name="Hard-Grader" onchange="filterUpdate()"> </input>
 							</div>
 							
 							<div>
 								<label> Strict-Attendance </label>
-								<input type="checkbox" class = "checkBox" name = "Strict-Attendance" onchange="filterUpdate()"> </input>
+								<input type="checkbox" class = "checkBox" id= "Strict-Attendance" name = "Strict-Attendance" onchange="filterUpdate()"> </input>
 							</div>
 							
 							<div>
 								<label> Lenient-Attendance </label>
-								<input type="checkbox" class = "checkBox" name = "Lenient-Attendance" onchange="filterUpdate()"> </input>
+								<input type="checkbox" class = "checkBox" id = "Lenient-Attendance" name = "Lenient-Attendance" onchange="filterUpdate()"> </input>
 							</div>
 							
 						</div>
 						<div class= "filterListColumn">
 							<div>
-								<label> Test-Heavy </label>
-								<input type="checkbox" class = "checkBox" name="Test-Heavy" onchange="filterUpdate()"> </input>
-							</div>
-							
-							<div>
-								<label> Test-Light </label>
-								<input type="checkbox" class = "checkBox" name="Test-Light" onchange="filterUpdate()"> </input>
+								<label> Test-Based </label>
+								<input type="checkbox" class = "checkBox" id="Test-Based" name="Test-Based" onchange="filterUpdate()"> </input>
 							</div>
 						
 							<div>
-								<label> Project-Heavy </label>
-								<input type="checkbox" class = "checkBox" name="Project-Heavy" onchange="filterUpdate()"> </input>
+								<label> Project-Based </label>
+								<input type="checkbox" class = "checkBox" id="Project-Based" name="Project-Based" onchange="filterUpdate()"> </input>
 								
 							</div>
 							
 							<div>
 								<label> No-Project </label>
-								<input type="checkbox" class = "checkBox" name="No-Project" onchange="filterUpdate()"> </input>
+								<input type="checkbox" class = "checkBox" id="No-Project" name="No-Project" onchange="filterUpdate()"> </input>
+							</div>
+							
+							<div>
+								<label> Accessible </label>
+								<input type="checkbox" class = "checkBox" id="Accessible" name="Accessible" onchange="filterUpdate()"> </input>
 							</div>
 							
 						</div>
@@ -196,7 +196,7 @@
 			
 			<div id= "professorList" data-numberOfProfessors = "3">
 			
-				<a  id="professorOne" href="professor.html" style="font-color:black" data-tagList = "Easy-Grader Strict-Attendance Test-Heavy">
+				<a  id="professorOne" href="professor.html" style="font-color:black" data-tagList = "Easy-Grader Accessible Lenient-Attendance Project-Based">
 					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
 						
 						<p class="name"> Brian Crain </p>
@@ -209,7 +209,7 @@
 					</div>
 				</a>
 			
-				<a id="professorTwo" href="professorTwo.html" style="font-color:black" data-tagList = "Hard-Grader Lenient-Attendance">
+				<a id="professorTwo" href="professorTwo.html" style="font-color:black" data-tagList = "Hard-Grader Lenient-Attendance Accessible">
 					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
 						
 						<p class="name"> Sebastian Anderson </p>
@@ -223,7 +223,7 @@
 					</div>
 				</a>
 				
-				<a id="professorThree" href="" style="font-color:black" data-tagList = "Moderate-Grader Project-Heavy">
+				<a id="professorThree" href="" style="font-color:black" data-tagList = "Easy-Grader Accessible">
 					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
 						<p class="name"> Cody Barnish </p>
 						
@@ -253,6 +253,18 @@
 	
 	
   <script>
+  
+  function loadPreferences (){
+  
+	if(sessionStorage.getItem('hasPreferences')=='true'){
+		if(sessionStorage.getItem('isDisabled')=='Yes') document.getElementById("Accessible").checked = true;
+		if(sessionStorage.getItem('prefersTesting')=='Yes') document.getElementById("Test-Based").checked = true;
+			else document.getElementById("Project-Based").checked = true;
+		if(sessionStorage.getItem('prefersFlexibleAttendance')=='Yes') document.getElementById("Lenient-Attendance").checked = true;
+	}
+  
+	filterUpdate();
+  }
   
   function filterUpdate(){
 	

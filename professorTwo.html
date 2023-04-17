@@ -15,10 +15,10 @@
 
 </head>
 
-<body onload="loadName()">
+<body onload="loadName()" style = "background-color: #7B2240;">
 
     <!--Container containing everything at the top-->
-    <div class = "container">
+    <div class = "container" style = "background-color: white; padding: 70px;">
 
         <!--div which will hold professors image, name, and other classes they lecture-->
         <div class = "row">
@@ -38,7 +38,7 @@
                         <h3 id = "professorName" style = "background: white">Sebastian Anderson</h3>
         
                         <div class="dropdown" id = "otherClassesDropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false" style = "background: #7B2240; color: white;">
                               Other Courses Taught
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -319,7 +319,7 @@
 
             <!--Submit button-->
             <div style  = "text-align: center; margin-top: 10px;">
-                <button onClick = "updateAll()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#submitSuccessful">Submit Feedback</button>
+                <button onClick = "updateAll()" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#submitSuccessful" style = "background: #7B2240; color: white" id = "submitFeedback">Submit Feedback</button>
             </div>
 
             <!-- Modal telling user that their information has been submitted -->

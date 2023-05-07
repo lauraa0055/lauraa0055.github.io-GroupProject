@@ -28,7 +28,12 @@
 			text-align:center;
 		}
 		
-		
+		#buttonSet {
+			display:flex;
+			text-align:center;
+			justify-content: center;
+			
+		}
 		
 		</style>
 	</head>
@@ -45,16 +50,16 @@
 			
 			
 			<div id="formBody">
-				<div id = "nameInput" style = "margin:5vh;">
+				<div id = "name" style = "margin:5vh;">
 					<label style="font-size:3vh"> Name </label>
-					<input type="text" style= "line-height:25px" onchange="recordName(this)"> </input>
+					<input id="nameInput" type="text" style= "line-height:25px"> </input>
 				</div>
 				
 				<hr>
 				
 				<div id="testingInput" style="margin:2vh">
 					Do you prefer testing over projects?
-					<select onchange="recordTesting(this)">
+					<select id="testingSelection">
 						<option disabled ="true" selected="true"> Select </option>
 						<option> Yes </option>
 						<option> No </option>
@@ -65,7 +70,7 @@
 				
 				<div id="attendance" style="margin:2vh">
 					Do you have other obligations that may result in missing classes often?
-					<select onchange="recordAttendance(this)"> 
+					<select id="attendanceSelection"> 
 						<option disabled ="true" selected="true"> Select </option>
 						<option> Yes </option>
 						<option> No </option>
@@ -78,7 +83,7 @@
 				
 					Do you have a disability?
 					
-					<select onchange="recordDisability(this)"> 
+					<select id="disabilitySelection"> 
 						<option disabled ="true" selected="true"> Select </option>
 						<option> Yes </option>
 						<option> No </option>
@@ -89,10 +94,17 @@
 			
 			</div>
 			
-			<div id="clearData" style="position:absolute;left:3vh; bottom:3vh">
-				<button style="background:transparent; cursor:pointer" onclick="clearData()"> Clear Information </button>
-			
+			<div id="buttonSet">
+				<div id="saveButton" style="padding:50px">
+					<button style="background:transparent; cursor:pointer; border-radius:100px;font-size:2vh;" onclick="saveData(this)"> Save </button>
+				</div>
+				
+				<div id="clearData" style="padding:50px">
+					<button style="background:transparent; cursor:pointer; border-radius:100px;font-size:2vh;" onclick="clearData()"> Clear Information </button>
+				</div>
 			</div>
+			
+			
 			
 			<div id = "homeButton" style="margin-top:50px; position:absolute;bottom:0px; right:0px;">
 				<button style="background:transparent; border:none; float:right; cursor:pointer">
@@ -108,27 +120,22 @@
 	
 	<script>
 	
+		function saveData(item){
+			
+			if (!document.getElementById("nameInput").value == " ") sessionStorage.setItem('name',document.getElementById("nameInput").value);
+			
+			if(!(document.getElementById("disabilitySelection").value == "Select")) sessionStorage.setItem('isDisabled',document.getElementById("disabilitySelection").value);
+			
+			if(!(document.getElementById("testingSelection").value == "Select")) sessionStorage.setItem('prefersTesting',document.getElementById("testingSelection").value);
+			
+			if(!(document.getElementById("attendanceSelection").value == "Select")) sessionStorage.setItem('prefersFlexibleAttendance',document.getElementById("attendanceSelection").value);
+		}
+	
 		function clearData (){
 			sessionStorage.clear();
 			location.reload();
 		}
-	
-		function recordName(item){
-			console.log(item.value);
-			sessionStorage.setItem('name',item.value);
-		}
 		
-		function recordDisability(item){
-			sessionStorage.setItem('isDisabled',item.value);
-		}
-		
-		function recordTesting(item){
-			sessionStorage.setItem('prefersTesting',item.value);
-		}
-		
-		function recordAttendance(item){
-			sessionStorage.setItem('prefersFlexibleAttendance',item.value);
-		}
 
 	</script>
 	

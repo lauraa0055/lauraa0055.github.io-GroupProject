@@ -4,6 +4,10 @@ p {
 
 }
 
+body{
+  overflow:hidden;
+}
+
 .homePage {
     display: flex;
     flex-direction: column;
@@ -14,10 +18,11 @@ p {
   }
   
  #preferences {
-	position:absolute;
-	top:2vh;
+	position:fixed;
+	bottom:2vh;
 	right:2vh;
 	font-size:2vh;
+  border:.1vh solid black;
  }
 
 #logo {

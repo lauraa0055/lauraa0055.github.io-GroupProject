@@ -1,0 +1,169 @@
+html {
+    overflow: scroll;
+    background-color:#7B2240;
+}
+
+* {
+    font-family: Helvetica;
+}
+
+.searchPage {
+    background-color:white;
+    margin-left:20vh;
+    margin-right:20vh;
+    height: auto;
+    padding-right:10vh;
+    padding-left:10vh;
+    padding-top:5vh;
+    padding-bottom:10vh;
+}
+
+/*Top of Page */
+
+.classDesc{
+    display: flex;
+    border: 1px solid black;
+    height:10%;
+    text-align:center;
+    margin-top:5vh;
+}
+
+.courseName{
+    margin:auto; 
+    border-right:1px black solid;
+}
+
+.courseInfo {
+    margin:auto;
+    overflow:hidden;
+}
+
+#courseFooter{
+    font-size:10px;
+}
+
+a {
+    color:black;
+    text-decoration:none;
+}
+
+.name {
+    font-size:25px;
+    text-align:center;
+}
+
+
+#filterListPanel{
+    
+    overflow:hidden;
+    max-height:0px;
+    transition-duration: 500ms;
+}
+
+.filterListPanelTransform {
+    max-height:100px;
+}
+
+#filterList {
+    display:flex;
+    height:100px;
+    background: #D3D3D3;
+    gap:auto;
+    justify-content:space-around;
+    
+    
+}
+
+.filterListColumn {
+    display:flex;
+    flex-direction:column;
+    padding:10px;
+}
+
+
+
+
+
+
+
+/*Rest of Page*/
+
+#professorListContainer {
+    margin-top:10vh; 
+    margin-left:10vh; 
+    margin-right:10vh
+}
+
+#professorListHeader{
+    text-align:left; 
+    font-size:30px;
+}
+
+#filterButton{
+    text-align:right;
+}
+
+.professors{
+    font-color:black;
+}
+
+.name{
+
+}
+
+.professorContent{
+    border:1px black solid; 
+    height:auto; 
+   
+    margin-top:40px;
+}
+
+.professorContentBlocked{
+    border:1px black solid; 
+    height:auto; 
+    
+    margin-top:40px; 
+    background-color:grey; 
+    cursor: not-allowed;
+}
+
+.tagArea {
+    display:flex;
+    flex-wrap: wrap;
+    height:auto;
+    justify-content: start;
+}
+
+.tag {
+    border:1px solid black;
+    margin:auto;
+    margin-top:2vh;
+    margin-bottom:2vh;
+    vertical-align: middle;
+
+    font-size:12px;
+    white-space:nowrap;
+    border-radius: 30px;
+    padding-left:1vw;
+    padding-right:1vw;
+}
+
+#homeButtonDivider{
+    position:a;
+    bottom:0px;
+    top:100px;
+    margin-top:50px;
+}
+
+#homeButton{
+    background:transparent; 
+    border:none; 
+    float:right; 
+    cursor:pointer
+}
+
+
+.homeButtonComponents {
+    display:flex;
+    margin:auto;
+}

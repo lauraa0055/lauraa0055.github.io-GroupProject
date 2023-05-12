@@ -2,119 +2,25 @@
 <html>
 <head>
   <title>Search Results</title>
-  <style>
-	html {
-		overflow: scroll;
-		background-color:#7B2240;
-	}
-  
-	* {
-		font-family: Helvetica;
-	}
-	
-	.flex-container {
-		display: flex;
-		border: 1px solid black;
-		height:100px;
-		text-align:center;
-		margin-top:50px;
-	}
-	
-	.tagArea {
-		display:flex;
-		height:25px;
-		justify-content: start;
-	}
-	
-	a {
-		color:black;
-		text-decoration:none;
-	}
-	
-	.name {
-		font-size:25px;
-		text-align:center;
-	}
-	
-	.tag {
-		border:1px solid black;
-		height:fit-content;
-		margin:auto;
-		width:fit-content;
-		font-size:12px;
-		white-space:nowrap;
-		border-radius: 30px;
-		padding-left:3px;
-		padding-right:3px;
-	}
-	
-	#filterListPanel{
-		
-		overflow:hidden;
-		max-height:0px;
-		transition-duration: 500ms;
-	}
-	
-	.filterListPanelTransform {
-		max-height:100px;
-	}
-	
-	#filterList {
-		display:flex;
-		height:100px;
-		background: #D3D3D3;
-		gap:auto;
-		justify-content:space-around;
-		
-		
-	}
-	
-	.filterListColumn {
-		display:flex;
-		flex-direction:column;
-		padding:10px;
-	}
-	
-	.searchPage {
-		background-color:white;
-		margin-left:100px;
-		margin-right:100px;
-		height: auto;
-		padding-right:100px;
-		padding-left:100px;
-		padding-top:50px;
-		padding-bottom:100px;
-	}
-	
-	.homeButton{
-		position:a;
-		bottom:0px;
-		top:100px;
-	}
-	
-	.homeButtonComponents {
-		display:flex;
-		margin:auto;
-	}
-  </style>
+	<link rel="stylesheet" href="search.css">
 </head>
 <body onload="sortList(), renderTags(), loadPreferences()">
 	
     <div class="searchPage">
 		<div class = "topPage">
-			<div class="flex-container">
-				<div class="courseName" style="margin:auto; border-right:1px black solid">
+			<div class="classDesc">
+				<div class="courseName">
 					CISC 1115 - Introduction to Programming Using Java
 				</div>
 			
-				<div class="courseInfo" style="margin:auto;overflow:hidden">
-					<p style="">
+				<div class="courseInfo">
+					<p style>
 					Algorithms, computers and programs. Writing, debugging, and testing programs. Loops and conditional control structures. Method definition and parameter passing. 
 					Arrays, ArrayLists, and Strings. Sorting, searching and other basic algorithms. Input and output. Programming applications selected from various disciplines. 
 					History and basic concepts of computer science.
 					</p>
 					
-					<footer style="font-size:10px">
+					<footer id="courseFooter">
 						<i>
 						Requirements: (Not open to students who have completed Computer and Information Science 1110 [1.5]. 
 						Completion of this course prohibits a student from receiving credit for CISC 1110.)
@@ -124,8 +30,8 @@
 			</div>
 		</div>
 		
-		<div class="professorListContainer" style="margin-top:100px; margin-left:100px; margin-right:100px">
-			<p style="text-align:left; font-size:30px">Professors</p>
+		<div class="professorListContainer">
+			<p id="professorListHeader">Professors</p>
 			
 			<div style="text-align:right">
 				<label> Sort By</label>
@@ -136,7 +42,7 @@
 			</div>
 			
 			<div >
-				<button id="filterButton" style="text-align:right" onclick = "expand()"> 
+				<button id="filterButton" onclick = "expand()"> 
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
   <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
 					</svg>
@@ -193,11 +99,12 @@
 			</div>
 			
 			
+
 			
 			<div id= "professorList" data-numberOfProfessors = "10">
 			
-				<a  id="professorOne" href="professor.html" style="font-color:black" data-tagList = "Easy-Grader Accessible Lenient-Attendance Project-Based">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
+				<a  class="professors" href="professor.html" data-tagList = "Easy-Grader Accessible Lenient-Attendance Project-Based">
+					<div class="professorContent">
 						
 						<p class="name"> Brian Crain </p>
 						<hr>
@@ -209,8 +116,8 @@
 					</div>
 				</a>
 			
-				<a id="professorTwo" href="professorTwo.html" style="font-color:black" data-tagList = "Hard-Grader Lenient-Attendance Accessible">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px">
+				<a class="professors" href="professorTwo.html" data-tagList = "Hard-Grader Lenient-Attendance Accessible">
+					<div class="professorContent">
 						
 						<p class="name"> Sebastian Anderson </p>
 						<hr>
@@ -223,8 +130,8 @@
 					</div>
 				</a>
 				
-				<a id="professorThree" style="font-color:black" data-tagList = "Easy-Grader Accessible">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px; background-color:grey; cursor: not-allowed;">
+				<a class="professors" data-tagList = "Easy-Grader Accessible">
+					<div class="professorContentBlocked">
 						<p class="name"> Nathaniel Santiago </p>
 						
 						<hr>
@@ -237,8 +144,8 @@
 					</div>
 				</a>
 				
-				<a id="professor" style="font-color:black" data-tagList = "Easy-Grader Accessible">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px; background-color:grey; cursor: not-allowed;">
+				<a class="professors" data-tagList = "Easy-Grader Accessible">
+					<div class="professorContentBlocked">
 						<p class="name"> Macie Burke </p>
 						
 						<hr>
@@ -251,8 +158,8 @@
 					</div>
 				</a>
 				
-				<a id="professor" style="font-color:black" data-tagList = "Hard-Grader Lenient-Attendance Test-Based Accessible">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px; background-color:grey; cursor: not-allowed;">
+				<a class="professors" data-tagList = "Hard-Grader Lenient-Attendance Test-Based Accessible">
+					<div class="professorContentBlocked">
 						<p class="name"> Bobby Christian </p>
 						
 						<hr>
@@ -265,8 +172,8 @@
 					</div>
 				</a>
 				
-				<a id="professor" style="font-color:black" data-tagList = "Hard-Grader No-Project Lenient-Attendance">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px; background-color:grey; cursor: not-allowed;">
+				<a class="professors" data-tagList = "Hard-Grader No-Project Lenient-Attendance">
+					<div class="professorContentBlocked">
 						<p class="name"> Adele Walls </p>
 						
 						<hr>
@@ -279,8 +186,8 @@
 					</div>
 				</a>
 				
-				<a id="professor" style="font-color:black" data-tagList = "Easy-Grader Accessible Strict-Attendance Project-Based">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px; background-color:grey; cursor: not-allowed;">
+				<a class="professors" data-tagList = "Easy-Grader Accessible Strict-Attendance Project-Based">
+					<div class="professorContentBlocked">
 						<p class="name"> Rhonda Sandoval </p>
 						
 						<hr>
@@ -293,8 +200,8 @@
 					</div>
 				</a>
 				
-				<a id="professor" style="font-color:black" data-tagList = "Easy-Grader Accessible Strict-Attendance Test-Based">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px; background-color:grey; cursor: not-allowed;">
+				<a class="professors" data-tagList = "Easy-Grader Accessible Strict-Attendance Test-Based">
+					<div class="professorContentBlocked">
 						<p class="name"> Carrie O'Doherty </p>
 						
 						<hr>
@@ -307,8 +214,8 @@
 					</div>
 				</a>
 				
-				<a id="professor" href = "" disabled style="font-color:black" data-tagList = "Easy-Grader Accessible Lenient-Attendance Test-Based">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px; background-color:grey; cursor: not-allowed;">
+				<a class="professors" data-tagList = "Easy-Grader Accessible Lenient-Attendance Test-Based">
+					<div class="professorContentBlocked">
 						<p class="name"> Gordon Houston</p>
 						
 						<hr>
@@ -321,8 +228,8 @@
 					</div>
 				</a>
 				
-				<a id="professor" style="font-color:black" data-tagList = "Easy-Grader Accessible No-Project Strict-Attendance">
-					<div class="professor" style="border:1px black solid; height:100px; padding: 20px; margin-top:40px; background-color:grey; cursor: not-allowed;">
+				<a class="professors" data-tagList = "Easy-Grader Accessible No-Project Strict-Attendance">
+					<div class="professorContentBlocked">
 						<p class="name"> Alesha Vazquez </p>
 						
 						<hr>
@@ -337,147 +244,18 @@
 			</div>
 		</div>
 		
-		<div id = "homeButton" style="margin-top:50px">
-			<button style="background:transparent; border:none; float:right; cursor:pointer">
+		<div id = "homeButtonDivider">
+			<button id="homeButton">
 				<a href = "index.html"> 
 					<div class="homeButtonComponents">
-						<img src="bullDog.png" style="height:50px">
+						<img src="bullDog.png" style="height:5vh">
 					</div>
 				</a>
 			</button>
 		</div>
-		
     </div>
 	
-	
-  <script>
-  
-  function loadPreferences (){
- 
-		if(sessionStorage.getItem('isDisabled')=='Yes') document.getElementById("Accessible").checked = true;
-		if(sessionStorage.getItem('prefersTesting')=='Yes') document.getElementById("Test-Based").checked = true;
-			else if (sessionStorage.getItem('prefersTesting')=='No')document.getElementById("Project-Based").checked = true;
-		if(sessionStorage.getItem('prefersFlexibleAttendance')=='Yes') document.getElementById("Lenient-Attendance").checked = true;
-  
-	filterUpdate();
-  }
-  
-  function filterUpdate(){
-	
-	//Get array of active filters
-	let filterListPanelTemp = document.getElementById("filterListPanel");
-	let checkBoxes = document.getElementsByClassName("checkBox");
-	let filterArray = [];
-	for(let i = 0; i < checkBoxes.length; i++){
-		if(checkBoxes[i].checked == true) filterArray.push(checkBoxes[i].name);
-	}
-	
-	//Hide/Show Qualifying Professors
-	let qualifiedProfessors = [];
-	const profArray = getCurrentProfessors();
-	
-	for(let i = 0; i < profArray.length; i++){
-		let profTagList = profArray[i].getAttribute("data-tagList");
-		let qualified = true;
-		
-		for(let j = 0; j < filterArray.length; j++){
-			if(!(profTagList.includes(filterArray[j]))) qualified = false;
-		}
-		
-		if(qualified) profArray[i].style.display = "block";
-		else profArray[i].style.display = "none";
-	
-	}
-  }
-  
-  function expand(){
-	let filterList = document.getElementById("filterListPanel");
-
-	if(filterList.style.maxHeight=="100px"){
-	
-		filterList.style.maxHeight = "0px";
-		
-	} else {
-		filterList.style.maxHeight = "100px";
-	}
-  }
-  
-  
-  function renderTags(){
-
-	let professorList = document.getElementById("professorList");
-	let numberOfProfessors = professorList.getAttribute("data-numberOfProfessors");
-	let tagArea = document.getElementsByClassName("tagArea");
-	
-	for(let i = 0; i < numberOfProfessors; i++){
-		
-	
-		let tagArray = professorList.children[i].getAttribute("data-tagList").split(" ");
-		
-		for(j = 0; j < tagArray.length; j++){
-			let tag = document.createElement("div");
-			tag.setAttribute("class","tag");
-			
-			tag.innerText = tagArray[j];
-			tagArea[i].append(tag);
-			
-		}
-	}
-  }
- 
-  function sortList(){
-	const profArray = getCurrentProfessors();
-	let professorList = document.getElementById("professorList");
-	let numberOfProfessors = professorList.getAttribute("data-numberOfProfessors");
-	let input = document.getElementById("sortBy");
-	
-	switch(input.value){
-	
-		case "FirstName":
-			for(let i = 0; i < numberOfProfessors; i++){
-				for(let j = 0; j < numberOfProfessors; j++){
-					if(profArray[i].children[0].children[0].innerText.split(" ")[0] < profArray[j].children[0].children[0].innerText.split(" ")[0]){
-						let temp = profArray[i]
-						profArray[i] = profArray[j];
-						profArray[j] = temp;
-					}
-				}
-			}
-			break;
-		case "LastName":
-			for(let i = 0; i < numberOfProfessors; i++){
-				for(let j = 0; j < numberOfProfessors; j++){
-					if(profArray[i].children[0].children[0].innerText.split(" ")[1] < profArray[j].children[0].children[0].innerText.split(" ")[1]){
-						let temp = profArray[i]
-						profArray[i] = profArray[j];
-						profArray[j] = temp;
-					}
-				}
-			}
-			break;
-			
-	}
-	
-	professorList.innerHTML = "";
-	
-	for(let i = 0; i < numberOfProfessors; i++) {
-		professorList.append(profArray[i]);
-	}
-  }
-  
-  function getCurrentProfessors(){
-	const profArray = [];
-	let professorList = document.getElementById("professorList");
-	let numberOfProfessors = professorList.getAttribute("data-numberOfProfessors");
-	
-	for(let i = 0; i < numberOfProfessors; i++){
-		profArray.push(professorList.children[i]);
-	}
-	return profArray;
-  }
-  
-  
-  </script>
+  <script src="search.js"></script>
   
 </body>
 </html>

@@ -17,8 +17,40 @@
 
 <body onload="loadName()" style = "background-color: #7B2240;">
 
+
+    <!--Checklist for Navigation
+        [X] Professor Information
+        [X] Ratings
+        [X] Student Comments
+        [X] Rate the Course
+    -->
+    <!--The navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style = "background-color: #4a1527;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html" style="color:white">Home Page</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#professorNavLink" style = "color:white">Professor Information</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#ratingsForNav" style="color:white">Ratings</a>
+              </li>
+              <li class = "nav-item">
+                <a class="nav-link" aria-current = "page" href="#studentCommentsForNav" style = "color:white">Student Comments</a>
+              </li>
+              <li class = "nav-item">
+                <a class="nav-link" aria-current="page" href="#forums" style = "color:white">Rate the Course</a>
+              </li>
+          </div>
+        </div>
+      </nav>
+
     <!--Container containing everything at the top-->
-    <div class = "container" style = "background-color: white; padding: 70px;">
+    <div class = "container" style = "background-color: white; padding: 70px;" id = "professorNavLink">
 
         <!--div which will hold professors image, name, and other classes they lecture-->
         <div class = "row">
@@ -104,7 +136,7 @@
         </div>
 
         <!--Ratings-->
-        <div class  = "row">
+        <div class  = "row" id = "ratingsForNav">
             <h4 style = "margin-top: 20px;border-bottom: 3px solid black;">Ratings</h4>
 
             <div class = "col-sm-3">
@@ -157,7 +189,7 @@
         </div>
 
         <!--Student Comments-->
-        <h4 style  = "border-bottom: 3px solid black; margin-top: 20px;">Student Comments</h4>
+        <h4 style  = "border-bottom: 3px solid black; margin-top: 20px;" id = "studentCommentsForNav">Student Comments</h4>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -332,7 +364,15 @@
                         </div>
 
                         <div class="modal-body">
-                            <p>Your Information has been successfully submitted!</p>
+                            <p> <b>Your Information has been successfully submitted!</b>
+                                <br>
+                                <br>
+                                Check the <b>"Other Comments" Section</b> of this page to see your comment.
+                                <br>
+                                <br>
+                                Check the <b>"Ratings" Section</b> as well to see how your score has affected
+                                the different rating scores.
+                            </p>
                         </div>
                         
                         <div class="modal-footer">

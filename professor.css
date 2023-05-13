@@ -75,7 +75,13 @@ label{
     padding-right:3vw;
   }
 
+
 .nav-link{
     font-size:1vw;
+
+}
+
+.nav-link:hover{
+    background-color: black;
 }
 

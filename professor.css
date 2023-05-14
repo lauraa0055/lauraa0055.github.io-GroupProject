@@ -1,7 +1,12 @@
 html * {
     /* #7B2240 */
     font-family: Helvetica;
-  
+}
+
+.homeLogo{
+    width:45px; 
+    border:1px white solid; 
+    border-radius:50%;
 }
 
 #professorGenericInfo {

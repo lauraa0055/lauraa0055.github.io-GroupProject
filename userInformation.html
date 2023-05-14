@@ -16,7 +16,7 @@
 	<body>
 			<nav class="navbar navbar-expand-lg navbar-light sticky-top" style = "background-color: #4a1527; width:100%">
 				<div class="container-fluid">
-				<a class="navbar-brand" href="index.html" style="color:white"> <img style="width:45px; border:1px white solid; border-radius:50%;"src="imgs/logo.png"> </img> </a>
+					<a class="navbar-brand" href="index.html" style="color:white"> <img alt= "homeButton" class="homeLogo" src="imgs/logo.png"> </img> </a>
 				</div>
 			</nav>
 
@@ -34,14 +34,14 @@
 			
 			<div id="formBody">
 				<div id = "name">
-					<label style="font-size:10px; background-color: white;"> Name </label>
+					<label for="nameInput"> Name </label>
 					<input id="nameInput" type="text" style= "line-height:25px"> </input>
 				</div>
 				
 				<hr>
 				
 				<div id="testingInput">
-					Do you prefer testing over projects?
+					<label for="testingSelection"> Do you prefer testing over projects? </label>
 					<select id="testingSelection">
 						<option disabled ="true" selected="true"> Select </option>
 						<option> Yes </option>
@@ -52,7 +52,7 @@
 				<hr>
 				
 				<div id="attendance">
-					Do you have other obligations that may result in missing classes often?
+					<label for="attendanceSelection"> Do you have other obligations that may result in missing classes often? </label>
 					<select id="attendanceSelection"> 
 						<option disabled ="true" selected="true"> Select </option>
 						<option> Yes </option>
@@ -63,8 +63,7 @@
 				<hr>
 				
 				<div id = "disabilityInput">
-				
-					Do you have a disability?
+					<label for="disabilitySelection"> Do you have a disability? </label>
 					
 					<select id="disabilitySelection"> 
 						<option disabled ="true" selected="true"> Select </option>
@@ -93,7 +92,7 @@
 				<button style="background:transparent; border:none; float:right; cursor:pointer">
 					<a href = "index.html"> 
 						<div class="homeButtonComponents">
-							<img src="bullDog.png" style="height:50px">
+							<img alt="backButton" src="bullDog.png" style="height:50px">
 						</div>
 					</a>
 				</button>

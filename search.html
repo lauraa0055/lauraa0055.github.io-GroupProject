@@ -15,7 +15,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-light sticky-top" style = "background-color: #4a1527;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html" style="color:white"> <img style="width:45px; border:1px white solid; border-radius:50%;"src="imgs/logo.png"> </img> </a>
+			<a class="navbar-brand" href="index.html" style="color:white"> <img alt= "homeButton" class="homeLogo" src="imgs/logo.png"> </img> </a>
         </div>
       </nav>
 	
@@ -29,14 +29,12 @@
 				<div class="courseInfo">
 					<p style>
 					Algorithms, computers and programs. Writing, debugging, and testing programs. Loops and conditional control structures. Method definition and parameter passing. 
-					Arrays, ArrayLists, and Strings. Sorting, searching and other basic algorithms. Input and output. Programming applications selected from various disciplines. 
-					History and basic concepts of computer science.
+					Arrays, ArrayLists, and Strings. Sorting, searching and other basic algorithms. Input and output. Programming applications selected from various disciplines. History and basic concepts of computer science.
 					</p>
 					
 					<footer id="courseFooter">
 						<i>
-						Requirements: (Not open to students who have completed Computer and Information Science 1110 [1.5]. 
-						Completion of this course prohibits a student from receiving credit for CISC 1110.)
+						Requirements: (Not open to students who have completed Computer and Information Science 1110 [1.5]. Completion of this course prohibits a student from receiving credit for CISC 1110.)
 						</i>
 					</footer>
 				</div>
@@ -47,7 +45,7 @@
 			<p id="professorListHeader">Professors</p>
 			
 			<div style="text-align:right">
-				<label style="background-color:white"> Sort By</label>
+				<label for="sortBy" style="background-color:white"> Sort By</label>
 				<select id = "sortBy" onchange="sortList(this)">
 					<option> FirstName </option>
 					<option> LastName </option>
@@ -55,7 +53,7 @@
 			</div>
 			
 			<div >
-				<button id="filterButton" onclick = "expand()"> 
+				<button id="filterButton" aria-label="filterExpansion" onclick = "expand()"> 
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
   <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
 					</svg>
@@ -64,45 +62,45 @@
 					<div id = "filterList">
 						<div class = "filterListColumn">
 							<div>
-								<label> Easy-Grader </label>
+								<label for="Easy-Grader"> Easy-Grader </label>
 								<input type="checkbox" class = "checkBox" id= "Easy-Grader" name="Easy-Grader" onchange="filterUpdate()"> </input>
 							</div>
 							
 							<div>
-								<label> Hard-Grader </label>
+								<label for="Hard-Grader"> Hard-Grader </label>
 								<input type="checkbox" class = "checkBox" id= "Hard-Grader" name="Hard-Grader" onchange="filterUpdate()"> </input>
 							</div>
 							
 							<div>
-								<label> Strict-Attendance </label>
+								<label for="Strict-Attendance"> Strict-Attendance </label>
 								<input type="checkbox" class = "checkBox" id= "Strict-Attendance" name = "Strict-Attendance" onchange="filterUpdate()"> </input>
 							</div>
 							
 							<div>
-								<label> Lenient-Attendance </label>
+								<label for="Lenient-Attendance"> Lenient-Attendance </label>
 								<input type="checkbox" class = "checkBox" id = "Lenient-Attendance" name = "Lenient-Attendance" onchange="filterUpdate()"> </input>
 							</div>
 							
 						</div>
 						<div class= "filterListColumn">
 							<div>
-								<label> Test-Based </label>
+								<label for="Test-Based"> Test-Based </label>
 								<input type="checkbox" class = "checkBox" id="Test-Based" name="Test-Based" onchange="filterUpdate()"> </input>
 							</div>
 						
 							<div>
-								<label> Project-Based </label>
+								<label for="Project-Based"> Project-Based </label>
 								<input type="checkbox" class = "checkBox" id="Project-Based" name="Project-Based" onchange="filterUpdate()"> </input>
 								
 							</div>
 							
 							<div>
-								<label> No-Project </label>
+								<label for="No-Project"> No-Project </label>
 								<input type="checkbox" class = "checkBox" id="No-Project" name="No-Project" onchange="filterUpdate()"> </input>
 							</div>
 							
 							<div>
-								<label> Accessible </label>
+								<label for="Accessible"> Accessible </label>
 								<input type="checkbox" class = "checkBox" id="Accessible" name="Accessible" onchange="filterUpdate()"> </input>
 							</div>
 							
@@ -143,7 +141,7 @@
 					</div>
 				</a>
 				
-				<a class="professors" data-tagList = "Easy-Grader Accessible">
+				<a href="#!" aria-disabled="true" class="professors" data-tagList = "Easy-Grader Accessible">
 					<div class="professorContentBlocked">
 						<p class="name"> Nathaniel Santiago </p>
 						
@@ -157,7 +155,7 @@
 					</div>
 				</a>
 				
-				<a class="professors" data-tagList = "Easy-Grader Accessible">
+				<a href="#!" aria-disabled="true" class="professors" data-tagList = "Easy-Grader Accessible">
 					<div class="professorContentBlocked">
 						<p class="name"> Macie Burke </p>
 						
@@ -171,7 +169,7 @@
 					</div>
 				</a>
 				
-				<a class="professors" data-tagList = "Hard-Grader Lenient-Attendance Test-Based Accessible">
+				<a href="#!" aria-disabled="true" class="professors" data-tagList = "Hard-Grader Lenient-Attendance Test-Based Accessible">
 					<div class="professorContentBlocked">
 						<p class="name"> Bobby Christian </p>
 						
@@ -185,7 +183,7 @@
 					</div>
 				</a>
 				
-				<a class="professors" data-tagList = "Hard-Grader No-Project Lenient-Attendance">
+				<a href="#!" aria-disabled="true" class="professors" data-tagList = "Hard-Grader No-Project Lenient-Attendance">
 					<div class="professorContentBlocked">
 						<p class="name"> Adele Walls </p>
 						
@@ -199,7 +197,7 @@
 					</div>
 				</a>
 				
-				<a class="professors" data-tagList = "Easy-Grader Accessible Strict-Attendance Project-Based">
+				<a href="#!" aria-disabled="true" class="professors" data-tagList = "Easy-Grader Accessible Strict-Attendance Project-Based">
 					<div class="professorContentBlocked">
 						<p class="name"> Rhonda Sandoval </p>
 						
@@ -213,7 +211,7 @@
 					</div>
 				</a>
 				
-				<a class="professors" data-tagList = "Easy-Grader Accessible Strict-Attendance Test-Based">
+				<a href="#!" aria-disabled="true" class="professors" data-tagList = "Easy-Grader Accessible Strict-Attendance Test-Based">
 					<div class="professorContentBlocked">
 						<p class="name"> Carrie O'Doherty </p>
 						
@@ -227,7 +225,7 @@
 					</div>
 				</a>
 				
-				<a class="professors" data-tagList = "Easy-Grader Accessible Lenient-Attendance Test-Based">
+				<a href="#!" aria-disabled="true" class="professors" data-tagList = "Easy-Grader Accessible Lenient-Attendance Test-Based">
 					<div class="professorContentBlocked">
 						<p class="name"> Gordon Houston</p>
 						
@@ -241,7 +239,7 @@
 					</div>
 				</a>
 				
-				<a class="professors" data-tagList = "Easy-Grader Accessible No-Project Strict-Attendance">
+				<a href="#!" aria-disabled="true" class="professors" data-tagList = "Easy-Grader Accessible No-Project Strict-Attendance">
 					<div class="professorContentBlocked">
 						<p class="name"> Alesha Vazquez </p>
 						
@@ -261,7 +259,7 @@
 			<button id="homeButton">
 				<a href = "index.html"> 
 					<div class="homeButtonComponents">
-						<img src="bullDog.png" style="height:7vh">
+						<img alt= "previousPageButton" src="bullDog.png" style="height:7vh">
 					</div>
 				</a>
 			</button>

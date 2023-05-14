@@ -4,10 +4,6 @@ p {
 
 }
 
-body{
-  overflow:hidden;
-}
-
 .homePage {
     display: flex;
     flex-direction: column;
@@ -53,6 +49,7 @@ body{
 
   #search-input {
     margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #f2f2f2;
     border-radius: 10px;
     border-color: #7B2240;
@@ -100,7 +97,6 @@ body{
     font-size: 30px;
     margin-bottom: 0;
   }
-  
   
   button[type="submit"] {
     padding: 10px;

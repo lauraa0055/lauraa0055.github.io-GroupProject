@@ -10,66 +10,22 @@
 
 		<link rel="stylesheet" href="professor.css">
 
-		<style>
-		body {
-			background-color:#7B2240;
-			font-size: 10px;
-			font-family: Helvetica;
-		}
-
-		#screen {
-			border: 1px #1F1F1F solid;
-			height:85%;
-			width:75%;
-			margin:auto;
-			background-color:white;
-			text-align:center;
-			min-height:100vh;
-		}
-		
-		#buttonSet {
-			display:flex;
-			text-align:center;
-			justify-content: center;
-			
-		}
-		
-		</style>
-
+		<link rel="stylesheet" href="userInformation.css">
 
 	</head>
 	<body>
-
-		<nav class="navbar navbar-expand-lg navbar-light sticky-top" style = "background-color: #4a1527;">
-			<div class="container-fluid">
-			  <a class="navbar-brand" href="index.html" style="color:white"> <img style="width:45px; border:1px white solid; border-radius:50%;"src="imgs/logo.png"> </img> </a>
-			  <button class="navbar-toggler" type="button" style="background-color: white;" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarScroll">
-				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll nav-fill w-100" style="--bs-scroll-height: 100px;">
-				  <li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#professorNavLink" style = "color:white;">Professor Information</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="#ratingsForNav" style="color:white">Ratings</a>
-				  </li>
-				  <li class = "nav-item">
-					<a class="nav-link" aria-current = "page" href="#studentCommentsForNav" style = "color:white">Student Comments</a>
-				  </li>
-				  <li class = "nav-item">
-					<a class="nav-link" aria-current="page" href="#forums" style = "color:white">Rate the Course</a>
-				  </li>
-			  </div>
-			</div>
-		  </nav>
+			<nav class="navbar navbar-expand-lg navbar-light sticky-top" style = "background-color: #4a1527; width:100%">
+				<div class="container-fluid">
+				<a class="navbar-brand" href="index.html" style="color:white"> <img style="width:45px; border:1px white solid; border-radius:50%;"src="imgs/logo.png"> </img> </a>
+				</div>
+			</nav>
 
 
 		<div id="screen" data-currentQuestion="0">
-			<div style="font-size:10vh;">
+			<div style="font-size:75px;">
 				Preferences
 			</div>
-			<footer style="font-size:1vh">
+			<footer style="font-size:10px">
 				Note: these answers will help better generate accomodating courses on the next page, which you can peruse.
 			</footer>
 			
@@ -77,14 +33,14 @@
 			
 			
 			<div id="formBody">
-				<div id = "name" style = "margin:5vh;">
-					<label style="font-size:3vh; background-color: white;"> Name </label>
+				<div id = "name">
+					<label style="font-size:10px; background-color: white;"> Name </label>
 					<input id="nameInput" type="text" style= "line-height:25px"> </input>
 				</div>
 				
 				<hr>
 				
-				<div id="testingInput" style="margin:2vh">
+				<div id="testingInput">
 					Do you prefer testing over projects?
 					<select id="testingSelection">
 						<option disabled ="true" selected="true"> Select </option>
@@ -95,7 +51,7 @@
 				
 				<hr>
 				
-				<div id="attendance" style="margin:2vh">
+				<div id="attendance">
 					Do you have other obligations that may result in missing classes often?
 					<select id="attendanceSelection"> 
 						<option disabled ="true" selected="true"> Select </option>
@@ -106,7 +62,7 @@
 				
 				<hr>
 				
-				<div id = "disabilityInput" style = "margin:2vh">
+				<div id = "disabilityInput">
 				
 					Do you have a disability?
 					
@@ -123,21 +79,21 @@
 			
 			<div id="buttonSet">
 				<div id="saveButton" style="padding:50px">
-					<button style="background:transparent; cursor:pointer; border-radius:100px;font-size:2vh;" onclick="saveData(this)"> Save </button>
+					<button style="background:transparent; cursor:pointer; border-radius:100px;font-size:20px;" onclick="saveData(this)"> Save </button>
 				</div>
 				
 				<div id="clearData" style="padding:50px">
-					<button style="background:transparent; cursor:pointer; border-radius:100px;font-size:2vh;" onclick="clearData()"> Clear Information </button>
+					<button style="background:transparent; cursor:pointer; border-radius:100px;font-size:20px;" onclick="clearData()"> Clear Information </button>
 				</div>
 			</div>
 			
 			
 			
-			<div id = "homeButton" style="">
+			<div id = "homeButton">
 				<button style="background:transparent; border:none; float:right; cursor:pointer">
 					<a href = "index.html"> 
 						<div class="homeButtonComponents">
-							<img src="bullDog.png" style="height:8vh">
+							<img src="bullDog.png" style="height:50px">
 						</div>
 					</a>
 				</button>
@@ -145,26 +101,7 @@
 				
 		</div>
 	
-	<script>
-	
-		function saveData(item){
-			
-			if (!document.getElementById("nameInput").value == " ") sessionStorage.setItem('name',document.getElementById("nameInput").value);
-			
-			if(!(document.getElementById("disabilitySelection").value == "Select")) sessionStorage.setItem('isDisabled',document.getElementById("disabilitySelection").value);
-			
-			if(!(document.getElementById("testingSelection").value == "Select")) sessionStorage.setItem('prefersTesting',document.getElementById("testingSelection").value);
-			
-			if(!(document.getElementById("attendanceSelection").value == "Select")) sessionStorage.setItem('prefersFlexibleAttendance',document.getElementById("attendanceSelection").value);
-		}
-	
-		function clearData (){
-			sessionStorage.clear();
-			location.reload();
-		}
-		
-
-	</script>
+	<script src="userInformation.js"></script>
 	
 	
 	</body>
